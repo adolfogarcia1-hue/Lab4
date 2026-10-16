@@ -5,19 +5,37 @@
 import module_adolfo
 import module_david
 
-QUIT = 4
+def main():
+    balance = 0.0
+    print("Welcome to the Partner Banking App!")
+    print_menu()
+    choice = get_choice()
+    match choice:
+        case 1:
+            module_adolfo.view_balance()
+        case 2:
+            module_adolfo.deposit()
+        case 3:
+            module_david.withdrawal()
+        case 4:
+            module_david.show_transactions()
+        case _:
+            pass
+
 
 def print_menu():
     print("\n=== Banking Menu ===")
     print("1. View Balance")
     print("2. Deposit")
     print("3. Withdraw")
-    print("4. Quit")
+    print("4. Show Transactions")
+    print("5. Quit")
 
 def get_choice():
+    QUIT = 5
     while True:
         try:
-            choice = int(input("Enter your choice (1-4): "))
+            choice = int(input("Enter your choice (1-5): "))
             if 1 <= choice <= QUIT:
                 return choice
             else:
@@ -25,8 +43,6 @@ def get_choice():
         except ValueError:
             print("Invalid input. Please enter a number.")
 
-def main():
-    balance = 0.0
-    print("Welcome to the Partner Banking App!")
 
-main()
+if __name__ == '__main__':
+    main()
