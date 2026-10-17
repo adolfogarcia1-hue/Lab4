@@ -1,4 +1,7 @@
-# Module written by Adolfo
+# *********************************************************
+# Authors:      Adolfo Garcia
+# File:         module_adolfo.py
+# Date:         10/17/2026
 
 def view_balance(balance):
     print(f"Current balance:: ${balance:.2f}")
