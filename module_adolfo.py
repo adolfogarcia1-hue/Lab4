@@ -1,7 +1,7 @@
 # Module written by Adolfo
 
 def view_balance(balance):
-    print(f"Current balance:: ${balance: .2f}")
+    print(f"Current balance:: ${balance:.2f}")
 
 def deposit(balance, amount):
     return balance + amount

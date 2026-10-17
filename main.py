@@ -19,7 +19,7 @@
 import module_adolfo
 import module_david
 
-def main():
+def main():  # Written by David and Adolfo
     balance = 0.0
     print("Welcome to the Partner Banking App!")
 
@@ -48,7 +48,7 @@ def main():
 
 
 
-def print_menu():
+def print_menu():    #Written by David
     print("\n=== Banking Menu ===")
     print("1. View Balance")
     print("2. Deposit")
@@ -56,7 +56,7 @@ def print_menu():
     print("4. Show Transactions")
     print("5. Quit")
 
-def get_choice():
+def get_choice():    # Written by David and Adolfo
     QUIT = 5
     while True:
         try:
