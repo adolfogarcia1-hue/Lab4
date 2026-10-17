@@ -2,25 +2,50 @@
 # Partners: Adolfo & David
 # Main driver program
 
+# Sample Run:
+# Welcome to the Partner Banking App!
+# 1. View Balance
+# 2. Deposit
+# 3. Withdraw
+# 4. Show Transactions
+# 5. Quit
+# Enter your choice: 2
+# Enter deposit amount: 50
+# Deposit successful! New balance: $50.00
+
+
+
+
 import module_adolfo
 import module_david
 
 def main():
     balance = 0.0
     print("Welcome to the Partner Banking App!")
-    print_menu()
-    choice = get_choice()
-    match choice:
-        case 1:
-            module_adolfo.view_balance()
-        case 2:
-            module_adolfo.deposit()
-        case 3:
-            module_david.withdrawal()
-        case 4:
+
+    while True:
+        print_menu()
+        choice = get_choice()
+
+        if choice == 1:
+            module_adolfo.view_balance(balance)
+
+        elif choice == 2:
+            amount = module_adolfo.get_amount("Enter deposit amount: ")
+            balance = module_adolfo.deposit(balance, amount)
+            print(f"Deposit successful! New balance: ${balance:.2f}")
+
+        elif choice == 3:
+            amount = module_david.get_amount("Enter withdrawal amount: ")
+            balance = module_david.withdrawal(balance, amount)
+
+        elif choice == 4:
             module_david.show_transactions()
-        case _:
-            pass
+
+        elif choice == 5:
+            print("\nThank you for using the Partner Banking App!")
+            break
+
 
 
 def print_menu():
@@ -39,7 +64,7 @@ def get_choice():
             if 1 <= choice <= QUIT:
                 return choice
             else:
-                print("Please enter a number between 1 and 4.")
+                print("Please enter a number between 1 and 5.")
         except ValueError:
             print("Invalid input. Please enter a number.")
 
